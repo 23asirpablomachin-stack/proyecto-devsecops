@@ -17,7 +17,7 @@ pipeline {
             steps {
                 echo 'Buscando vulnerabilidades CRÍTICAS...'
                 // Este comando hace que el pipeline falle si hay vulnerabilidades críticas [cite: 22, 23]
-                sh 'docker run --rm -v /var/run/docker.sock:/var/run/docker.sock aquasecurity/trivy:latest image --exit-code 1 --severity CRITICAL mi-app-segura:latest'
+                sh 'docker run --rm -v /var/run/docker.sock:/var/run/docker.sock aquasec/trivy image --exit-code 1 --severity CRITICAL mi-app-segura:latest'
             }
         }
         stage('Despliegue en Producción (CD)') {
